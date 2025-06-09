@@ -1,12 +1,13 @@
 import express from 'express';
-import * as controller from '../module/product/controller/product.controller.js';
+import * as articleCtrl from '../module/article/controller/article.controller.js';
 
 const router = express.Router();
 
-router.get('/products',        controller.getAll);
-router.get('/products/:id',    controller.getById);
-router.post('/products',       controller.create);
-router.put('/products/:id',    controller.update);
-router.delete('/products/:id', controller.remove);
+router.get('/articles',            articleCtrl.list);
+router.get('/articles/search',     articleCtrl.search);
+router.post('/articles',           articleCtrl.create);
+router.put('/articles/:id',        articleCtrl.update);
+router.delete('/articles/:id',     articleCtrl.remove);
+router.patch('/articles/:id/publish', articleCtrl.publish);
 
 export default router;
