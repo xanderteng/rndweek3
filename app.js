@@ -1,12 +1,14 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import apiRouter from './src/routes/api.js';
+import authRouter from './src/routes/auth.js';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
+app.use('/api/v1/auth', authRouter);
 app.use('/api/v1', apiRouter);
 
 app.use((err, req, res, next) => {
